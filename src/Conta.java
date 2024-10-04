@@ -1,11 +1,41 @@
 public class Conta{
 
     //atributos=variáveis
-    String agencia;
-    String numero;
-    String cpf;
-    String titular;
-    double saldo;
+    private String agencia;
+    private String numero;
+    private String cpf;
+    private String titular;
+    private double saldo;
+
+    public Conta(String agencia, String numero, String cpf, String titular){
+        setCpf(cpf);
+        this.titular = titular;
+        this.agencia = agencia;
+        this.numero = numero;
+    }
+
+    public Conta(String numero, String cpf, String titular){
+        this.numero = numero;
+        this.cpf = cpf;
+        this.titular = titular;
+        this.agencia = "1111";
+    }
+
+    private void setCpf(String cpf){
+        if(!cpf.isEmpty() && !cpf.isBlank()){
+            if(cpf.length() == 14){
+                this.cpf = cpf;
+            }
+        }
+    }
+
+    public void setNumero(String numero){
+        this.numero = numero;
+    }
+
+    public String getNumero(){
+        return this.numero;
+    }
 
     //métodos=função
     void sacar(double valor){
@@ -19,8 +49,7 @@ public class Conta{
     public String toString(){
         String str;
 
-        str = "6"+
-                "\n\tAgencia:"+agencia+
+        str =   "\n\tAgencia:"+agencia+
                 "\n\tNumero:"+numero+
                 "\n\tTitular:"+titular+
                 "\n\tCpf:"+cpf+
