@@ -12,6 +12,9 @@ public class Carro {
         
         if(quantidadeCombustivel >= valor*0.01){
             velocidade += valor*0.1;
+            if(velocidade > 150){
+                velocidade = 150;
+            }
             quantidadeCombustivel -= valor*.01;
             return true;
         }
